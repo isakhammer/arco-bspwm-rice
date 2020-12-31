@@ -1,0 +1,146 @@
+# Adds `~/.local/bin` to $PATH
+#export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+
+# Default programs:
+export EDITOR="nvim"
+export TERMINAL="urxvt"
+export BROWSER="chromium"
+export READER="zathura"
+
+set r rate 300 50
+
+# Map the caps lock key to super...
+alias so="source ~/.bashrc"
+alias p3="python3"
+alias se="vim ~/.bashrc-personal"
+alias vim="nvim"
+alias ls="ls --color=auto"
+function pc {
+  [ -d .git ] && git name-rev --name-only @
+}
+PS1='\e];\s\a\n\e[33m\w \e[36m$(pc)\e[m\n$ '
+
+
+# docker
+alias docker='sudo docker'
+alias docker_socket='sudo chmod 777 /var/run/docker.sock'
+
+alias cdz='cd "$(dirname "$(fzf)")"'
+alias cf='cd ~/.config'
+
+alias so_Xresources="xrdb -merge ~/.Xresources"
+
+# vi mode
+set -o vi
+export KEYTIMEOUT=1
+
+setxkbmap -option caps:swapescape
+
+# Short term alias for commands
+function ppa(){
+	mkdir -p ~/.cache/ppa
+	touch ~/.cache/ppa/pp
+	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp
+}
+alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
+
+function ppa1(){
+	mkdir -p ~/.cache/ppa
+	touch ~/.cache/ppa/pp1
+	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp1
+}
+alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
+
+
+# Adds the current branch to the bash prompt when the working directory is
+# part of a Git repository. Includes color-coding and indicators to quickly
+# indicate the status of working directory.
+#
+# To use: Copy into ~/.bashrc and tweak if desired.
+#
+# Based upon the following gists:
+# <https://gist.github.com/henrik/31631>
+# <https://gist.github.com/srguiwiz/de87bf6355717f0eede5>
+# Modified by me, using ideas from comments on those gists.
+#
+# License: MIT, unless the authors of those two gists object :)
+
+git_branch() {
+    # -- Finds and outputs the current branch name by parsing the list of
+    #    all branches
+    # -- Current branch is identified by an asterisk at the beginning
+    # -- If not in a Git repository, error message goes to /dev/null and
+    #    no output is produced
+    git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+git_status() {
+    # Outputs a series of indicators based on the status of the
+    # working directory:
+    # + changes are staged and ready to commit
+    # ! unstaged changes are present
+    # ? untracked files are present
+    # S changes have been stashed
+    # P local commits need to be pushed to the remote
+    local status="$(git status --porcelain 2>/dev/null)"
+    local output=''
+    [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
+    [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
+    [[ -n $(egrep '^\?\?' <<<"$status") ]] && output="$output?"
+    [[ -n $(git stash list) ]] && output="${output}S"
+    [[ -n $(git log --branches --not --remotes) ]] && output="${output}P"
+    [[ -n $output ]] && output="|$output"  # separate from branch name
+    echo $output
+}
+
+git_color() {
+    # Receives output of git_status as argument; produces appropriate color
+    # code based on status of working directory:
+    # - White if everything is clean
+    # - Green if all changes are staged
+    # - Red if there are uncommitted changes with nothing staged
+    # - Yellow if there are both staged and unstaged changes
+    local staged=$([[ $1 =~ \+ ]] && echo yes)
+    local dirty=$([[ $1 =~ [!\?] ]] && echo yes)
+    if [[ -n $staged ]] && [[ -n $dirty ]]; then
+        echo -e '\033[1;33m'  # bold yellow
+    elif [[ -n $staged ]]; then
+        echo -e '\033[1;32m'  # bold green
+    elif [[ -n $dirty ]]; then
+        echo -e '\033[1;31m'  # bold red
+    else
+        echo -e '\033[1;37m'  # bold white
+    fi
+}
+
+git_prompt() {
+    # First, get the branch name...
+    local branch=$(git_branch)
+    # Empty output? Then we're not in a Git repository, so bypass the rest
+    # of the function, producing no output
+    if [[ -n $branch ]]; then
+        local state=$(git_status)
+        local color=$(git_color $state)
+        # Now output the actual code to insert the branch and status
+        echo -e "\x01$color\x02[$branch$state]\x01\033[00m\x02"  # last bit resets color
+    fi
+}
+
+# Sample prompt declaration based off of the default Ubuntu 14.04.1 color
+# prompt. Tweak as you see fit, or just stick "$(git_prompt)" into your
+# favorite prompt.
+PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(git_prompt)\[\033[00m\]\$ '
+
+battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+if [ $battery_level -le 15 ]
+then
+    notify-send "Battery low" "Battery level is ${battery_level}%!"
+fi
+
+
+# Brightness
+function brightness(){
+	echo $1 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness
+}
+
+alias bb="brightness"
