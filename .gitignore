@@ -1,0 +1,22 @@
+Desktop/
+Documents/
+Downloads/
+Pictures/
+VirtualBox VMs/
+virtual_setup
+work
+.ssh/
+.steam/
+.steampath
+.steampid
+.mozilla/
+.node_repl_history
+.pki/
+.pulse-cookie
+.pylint.d/
+.python_history
+.python_history-04744.tmp
+.gitconfig
+.docker/
+.mozilla/
+
