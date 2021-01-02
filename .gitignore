@@ -96,3 +96,5 @@ tags*
 .config/xfce4/
 .config/yad.conf
 
+.bash_history
+
