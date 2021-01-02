@@ -24,7 +24,10 @@ Plug 'Raimondi/delimitMate' "
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'rhysd/clever-f.vim'
 " Plug 'metakirby5/codi.vim'
+Plug 'godlygeek/tabular'
 
 " Latex
 Plug 'SirVer/ultisnips' " Python
@@ -34,6 +37,7 @@ Plug 'matze/vim-tex-fold'
 Plug '907th/vim-auto-save'
 
 " Appearance
+Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
@@ -107,6 +111,43 @@ nnoremap <leader>b :buffers<CR>:buffer<space>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
+
+"""""
+" TABULARIZE
+"""""
+
+if exists(":Tabularize")
+      nmap <Leader>a= :Tabularize /=<CR>
+      vmap <Leader>a= :Tabularize /=<CR>
+      nmap <Leader>a: :Tabularize /:\zs<CR>
+      vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+
+"""""""
+" INDENTLINE:
+"""""""
+let g:indentLine_char       = '┆'
+let g:indentLine_setConceal = 0
+
+"""""""
+" Clever f:
+"""""""
+map ; <Plug>(clever-f-repeat-forward)
+map , <Plug>(clever-f-repeat-back)
 
 """""""
 " GOYO:
