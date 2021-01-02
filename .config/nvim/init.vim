@@ -12,8 +12,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 " Searching
 Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Python
 Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
-
+Plug 'yegappan/mru'
 " Speed
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-commentary'
@@ -37,15 +36,18 @@ Plug 'matze/vim-tex-fold'
 Plug '907th/vim-auto-save'
 
 " Appearance
+Plug 'djoshea/vim-autoread'
+Plug 'gioele/vim-autoswap'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'jpalardy/vim-slime'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'davidhalter/jedi'
 Plug 'kassio/neoterm'
 
 call plug#end()
@@ -76,7 +78,6 @@ set wildmode=longest,list,full
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
@@ -112,15 +113,22 @@ nnoremap <leader>b :buffers<CR>:buffer<space>
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
 
+
+"""""
+" VIM AUTOSWAP
+"""""
+set title titlestring
+
+
 """""
 " TABULARIZE
 """""
 
 if exists(":Tabularize")
-      nmap <Leader>a= :Tabularize /=<CR>
-      vmap <Leader>a= :Tabularize /=<CR>
-      nmap <Leader>a: :Tabularize /:\zs<CR>
-      vmap <Leader>a: :Tabularize /:\zs<CR>
+      nmap <Leader>D= :Tabularize /=<CR>
+      vmap <Leader>D= :Tabularize /=<CR>
+      nmap <Leader>D: :Tabularize /:\zs<CR>
+      vmap <Leader>D: :Tabularize /:\zs<CR>
 endif
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -171,27 +179,26 @@ endif
 """""""
 " VIMWIKI:
 """""""
-" Ensure files are read as what I want:
-let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-map <leader>v :VimwikiIndex
-let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-let g:vimwiki_table_mappings = 0
+" " Ensure files are read as what I want:
+" let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" map <leader>v :VimwikiIndex
+" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+" autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+" autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+" autocmd BufRead,BufNewFile *.tex set filetype=tex
+" let g:vimwiki_table_mappings = 0
 
 
 
 """""""""""""""""
-"  FZF- finder  "
+"  FZF- finder and MRU  "
 """""""""""""""""
-map <leader>f :FZFMru <cr>
+map <leader>f <Esc><Esc>:MRU <cr>
 map <leader>F <Esc><Esc>:Files!<CR>
 " inoremap <leader>F <Esc><Esc>:Blines!<CR>
 " map <leader>c <Esc><Esc>:BCommits!<CR>
 
 map <leader>G :Rg
-
 
 " fugitive git bindings
 nnoremap <leader>Ga :Git add %:p<CR><CR>
@@ -320,7 +327,6 @@ endif
 """""""
 " Autopair:
 """"""
-
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 
@@ -332,3 +338,7 @@ source ~/.config/nvim/cocrc.vim
 hi CocInfoFloat guifg=#hex-color guibg=#hex-color
 hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color
+nmap <silent> gd <Plug>(coc-definition)
+
+call airline#parts#define_function('coc_status', 'coc#status')
+let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
