@@ -328,36 +328,6 @@ let g:UltiSnipsJumpForwardTrigger='<c-space>'
 let g:UltiSnipsJumpBackwardTrigger='<c-S-space>'
 
 
-"""""""
-" COMMON:
-""""""
-" Spelling correction when pressing ctrl L
-"setlocal spell
-"hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
-"set spelllang=en_gb
-"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-" Spell-check set to <leader>o, 'o' for 'orthography':
-"map <leader>O :setlocal spell! spelllang=en_us<CR>
-
-
-
-
-"autocmd BufWritepre * %s/\n\+\%$//e
-
-" When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd BufWritePost files,directories !shortcuts
-" Run xrdb whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-" Update binds when sxhkdrc is updated.
-autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
-
-
-" Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
-if &diff
-    highlight! link DiffText MatchParen
-endif
-
 
 """""""
 " CODI:
