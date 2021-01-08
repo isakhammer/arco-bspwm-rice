@@ -124,11 +124,38 @@ nmap <leader>x :wqa!<CR>
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " buffer mappings
-nnoremap <leader>b :buffers<CR>:buffer<space>
+" Is now buffer
+" nnoremap <leader>b :buffers<CR>:buffer<space>
 
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
+
+set splitright
+
+" Spelling correction when pressing ctrl L
+"setlocal spell
+"hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
+"set spelllang=en_gb
+"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" Spell-check set to <leader>o, 'o' for 'orthography':
+"map <leader>O :setlocal spell! spelllang=en_us<CR>
+
+
+"autocmd BufWritepre * %s/\n\+\%$//e
+
+" When shortcut files are updated, renew bash and ranger configs with new material:
+autocmd BufWritePost files,directories !shortcuts
+" Run xrdb whenever Xdefaults or Xresources are updated.
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+" Update binds when sxhkdrc is updated.
+autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+
+
+" Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
+if &diff
+    highlight! link DiffText MatchParen
+endif
 
 
 """""
@@ -136,30 +163,29 @@ autocmd BufWritePre * %s/\s\+$//e
 """""
 set title titlestring
 
-
 """""
 " TABULARIZE
 """""
 
-if exists(":Tabularize")
-      nmap <Leader>D= :Tabularize /=<CR>
-      vmap <Leader>D= :Tabularize /=<CR>
-      nmap <Leader>D: :Tabularize /:\zs<CR>
-      vmap <Leader>D: :Tabularize /:\zs<CR>
-endif
+" if exists(":Tabularize")
+"       nmap <Leader>D= :Tabularize /=<CR>
+"       vmap <Leader>D= :Tabularize /=<CR>
+"       nmap <Leader>D: :Tabularize /:\zs<CR>
+"       vmap <Leader>D: :Tabularize /:\zs<CR>
+" endif
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
+" function! s:align()
+"   let p = '^\s*|\s.*\s|\s*$'
+"   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+"     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+"     let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+"     Tabularize/|/l1
+"     normal! 0
+"     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+"   endif
+" endfunction
 
 
 """""""
