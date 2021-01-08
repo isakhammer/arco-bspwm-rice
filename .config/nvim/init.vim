@@ -49,15 +49,32 @@ Plug 'jpalardy/vim-slime'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'davidhalter/jedi'
 Plug 'kassio/neoterm'
-
+Plug 'fholgado/minibufexpl.vim'
 call plug#end()
 
+"""""""
+" GRUVBOX
+"""""""
 colorscheme gruvbox
-set bg=dark
+" coc debug information
+" let g:gruvbox_guisp_fallback = 'bg'
+
+
+"""""""
+" IDENTATION
+"""""""
+set expandtab           " enter spaces when tab is pressed
+set textwidth=120       " break lines when line length increases
+set tabstop=4           " use 4 spaces to represent tab
+set softtabstop=4
+set shiftwidth=4        " number of spaces to use for auto indent
+set autoindent          " copy indent from current line when starting a new line
+
 
 """""""
 " BASICS
 """""""
+set bg=dark
 "set bg=light
 
 set go=a
