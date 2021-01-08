@@ -39,7 +39,7 @@ Plug '907th/vim-auto-save'
 Plug 'djoshea/vim-autoread'
 Plug 'gioele/vim-autoswap'
 Plug 'Yggdroot/indentLine'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
@@ -225,23 +225,31 @@ endif
 " " Ensure files are read as what I want:
 " let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " map <leader>v :VimwikiIndex
-" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown'}]
 " autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 " autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 " autocmd BufRead,BufNewFile *.tex set filetype=tex
 " let g:vimwiki_table_mappings = 0
 
-
+"""""""
+" CTRL P
+"""""""
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_map  = '<c-g>'
+map <leader>b <Esc><Esc>:CtrlPBuffer <cr>
+map <leader>m <Esc><Esc>:CtrlPMRU <cr>
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }
 
 """""""""""""""""
-"  FZF- finder and MRU  "
+"  FZF- finder
 """""""""""""""""
-map <leader>f <Esc><Esc>:MRU <cr>
-map <leader>F <Esc><Esc>:Files!<CR>
-" inoremap <leader>F <Esc><Esc>:Blines!<CR>
-" map <leader>c <Esc><Esc>:BCommits!<CR>
-
-map <leader>G :Rg
+map <leader>F <Esc><Esc>:Files!<cr>
+map <leader>G <Esc><Esc>:Rg <cr>
 
 " fugitive git bindings
 nnoremap <leader>Ga :Git add %:p<CR><CR>
