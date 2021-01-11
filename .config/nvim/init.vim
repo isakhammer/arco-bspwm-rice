@@ -12,7 +12,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 " Searching
 Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Python
 Plug 'junegunn/fzf.vim'
-Plug 'yegappan/mru'
+Plug 'kien/ctrlp.vim'
 " Speed
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-commentary'
@@ -22,11 +22,11 @@ Plug 'simeji/winresizer'
 Plug 'Raimondi/delimitMate' "
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/clever-f.vim'
 " Plug 'metakirby5/codi.vim'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
 " Latex
 Plug 'SirVer/ultisnips' " Python
@@ -37,7 +37,6 @@ Plug '907th/vim-auto-save'
 
 " Appearance
 Plug 'djoshea/vim-autoread'
-Plug 'gioele/vim-autoswap'
 Plug 'Yggdroot/indentLine'
 " Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
@@ -68,7 +67,9 @@ set textwidth=120       " break lines when line length increases
 set tabstop=4           " use 4 spaces to represent tab
 set softtabstop=4
 set shiftwidth=4        " number of spaces to use for auto indent
-set autoindent          " copy indent from current line when starting a new line
+set colorcolumn=80      " color for column after 80 tegn
+set smartindent         " copy indent from current line when starting a new line
+
 
 
 """""""
@@ -83,6 +84,12 @@ set nohlsearch
 set clipboard+=unnamedplus
 
 " Some basics:
+set hidden
+set noswapfile
+set nobackup
+set signcolumn=yes
+
+set scrolloff=8
 nnoremap c "_c
 set nocompatible
 filetype plugin on
@@ -96,7 +103,8 @@ set wildmode=longest,list,full
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+" Splits open at the bottom and right,
+" which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
 " Shortcutting split navigation, saving a keypress:
@@ -111,7 +119,7 @@ map Q gq
 " Check file in shellcheck:
 map <leader>s :!clear && shellcheck %<CR>
 
-" Quickly edit/reload this configuration file
+" Quickly edit/reload this configggguration file
 nnoremap <leader>se :e $MYVIMRC<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 
@@ -156,12 +164,6 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 if &diff
     highlight! link DiffText MatchParen
 endif
-
-
-"""""
-" VIM AUTOSWAP
-"""""
-set title titlestring
 
 """""
 " TABULARIZE
@@ -218,19 +220,6 @@ else
 	let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
 endif
 
-
-"""""""
-" VIMWIKI:
-"""""""
-" " Ensure files are read as what I want:
-" let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-" map <leader>v :VimwikiIndex
-" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown'}]
-" autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-" autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-" autocmd BufRead,BufNewFile *.tex set filetype=tex
-" let g:vimwiki_table_mappings = 0
-
 """""""
 " CTRL P
 """""""
@@ -268,6 +257,10 @@ nnoremap <leader>Go :Git checkout<Space>
 nnoremap <leader>Gps :Dispatch! git push<CR>
 nnoremap <leader>Gpl :Dispatch! git pull<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""" LATEX SETUP """""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """"""""""""""""""""""""""""""
 " => vim-autosave plugin
 """"""""""""""""""""""""""""""
@@ -285,7 +278,6 @@ au BufRead,BufNewFile *.tex :call EnableAutoSave()
 " => Vimtex Plugin
 " Check :h vimtex-requirements for more
 """"""""""""""""""""""""""""""
-
 let maplocalleader = "\\"
 let g:Tex_DefaultTargetFormat='pdf'
 let g:vimtex_view_enabled=1
@@ -311,6 +303,7 @@ if empty(v:servername) && exists('*remote_startserver')
   call remote_startserver('VIM')
 endif
 
+
 """"""""""""""""""""""""""""""
 " => Tex Conceal Plug-in
 "
@@ -327,7 +320,9 @@ let g:UltiSnipsExpandTrigger='<c-space>'
 let g:UltiSnipsJumpForwardTrigger='<c-space>'
 let g:UltiSnipsJumpBackwardTrigger='<c-S-space>'
 
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""
 " CODI:
@@ -361,5 +356,8 @@ hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color
 nmap <silent> gd <Plug>(coc-definition)
 
+"""""
+" AIRLINE
+"""""
 call airline#parts#define_function('coc_status', 'coc#status')
 let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
