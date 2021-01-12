@@ -145,3 +145,5 @@ function brightness(){
 }
 
 alias bb="brightness"
+alias probe="sudo -E hw-probe -all -upload"
+
