@@ -100,3 +100,17 @@ tags*
 
 Documents/Wallpapers
 .Xauthority
+
+.config/rstudio/
+.kite/
+.r/
+.rstudio-desktop/
+
+.config/Slack/
+.config/discord/
+.vim/
+.vim_mru_files
+R/
+lf01p4.ipynb
+
+
