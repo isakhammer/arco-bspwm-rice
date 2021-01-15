@@ -113,4 +113,8 @@ Documents/Wallpapers
 R/
 lf01p4.ipynb
 
+.config/RStudio/
+.config/nvim/pack/
+.RData
+.Rhistory
 
