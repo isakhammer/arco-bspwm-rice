@@ -15,6 +15,7 @@ alias p3="python3"
 alias c="clear"
 alias se="vim ~/.bashrc-personal"
 alias vim="nvim"
+alias r="ranger"
 alias ls="ls --color=auto"
 function pc {
   [ -d .git ] && git name-rev --name-only @
@@ -132,11 +133,16 @@ git_prompt() {
 # favorite prompt.
 PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(git_prompt)\[\033[00m\]\$ '
 
-battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
-if [ $battery_level -le 15 ]
-then
-    notify-send "Battery low" "Battery level is ${battery_level}%!"
-fi
+
+# Brightness
+# function battery_notification(){
+    # battery_level=sudo cat /sys/class/power_supply/BAT1/capacity
+    # if [ $battery_level -le 65 ]
+    # then
+    #     echo "LOW BATTERY" + $battery_level
+    # fi
+    # echo $battery_level
+# }
 
 
 # Brightness
@@ -146,4 +152,12 @@ function brightness(){
 
 alias bb="brightness"
 alias probe="sudo -E hw-probe -all -upload"
+alias R='R --quiet'
 
+alias g="git"
+git config --global alias.ch checkout
+git config --global alias.b branch
+git config --global alias.c commit
+git config --global alias.s status
+git config --global alias.st stash
+git config --global alias.a add
