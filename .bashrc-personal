@@ -12,7 +12,7 @@ set r rate 300 50
 # Map the caps lock key to super...
 alias so="source ~/.bashrc"
 alias p3="python3"
-alias c="clear"
+alias c="clear && ls"
 alias se="vim ~/.bashrc-personal"
 alias vim="nvim"
 alias r="ranger"
@@ -27,7 +27,7 @@ PS1='\e];\s\a\n\e[33m\w \e[36m$(pc)\e[m\n$ '
 alias docker='sudo docker'
 alias docker_socket='sudo chmod 777 /var/run/docker.sock'
 
-alias cdz='cd "$(dirname "$(fzf)")" && ls'
+alias cz='cd "$(dirname "$(fzf)")" && ls'
 alias cf='cd ~/.config'
 
 alias so_Xresources="xrdb -merge ~/.Xresources"
