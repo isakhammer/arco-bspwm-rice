@@ -1,57 +1,72 @@
 # Adds `~/.local/bin` to $PATH
 #export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 
+set r rate 300 50
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="urxvt"
 export BROWSER="chromium"
 export READER="zathura"
 
-set r rate 300 50
+# Vim mode
+set -o vi
+export KEYTIMEOUT=1
+setxkbmap -option caps:swapescape
 
-# Map the caps lock key to super...
+# basic aliases
 alias so="source ~/.bashrc"
-alias p3="python3"
 alias c="clear && ls"
-alias se="vim ~/.bashrc-personal"
-alias vim="nvim"
-alias r="ranger"
 alias ls="ls --color=auto"
-function pc {
-  [ -d .git ] && git name-rev --name-only @
-}
-PS1='\e];\s\a\n\e[33m\w \e[36m$(pc)\e[m\n$ '
+alias cf='cd ~/.config'
 
+alias vim="nvim"
+alias se="vim ~/.bashrc-personal"
+alias r="ranger"
 
-# docker
 alias docker='sudo docker'
 alias docker_socket='sudo chmod 777 /var/run/docker.sock'
 
+# binding ctrl-f to fuzzy search
 alias cz='cd "$(dirname "$(fzf)")" && ls'
-alias cf='cd ~/.config'
+bind '"\C-f":"cz *\r"'
 
-alias so_Xresources="xrdb -merge ~/.Xresources"
 
 # vi mode
-set -o vi
-export KEYTIMEOUT=1
+alias probe="sudo -E hw-probe -all -upload"
+alias R='R --quiet'
 
-setxkbmap -option caps:swapescape
-
-# Short term alias for commands
+# Short term alias for python commands
+alias p3="python3"
 function ppa(){
 	mkdir -p ~/.cache/ppa
 	touch ~/.cache/ppa/pp
 	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp
 }
-alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
 
 function ppa1(){
 	mkdir -p ~/.cache/ppa
 	touch ~/.cache/ppa/pp1
 	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp1
 }
+
+alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
 alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
+
+# Brightness
+function brightness(){
+	echo $1 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness
+}
+alias bb="brightness"
+
+
+alias g="git"
+git config --global alias.ch checkout
+git config --global alias.b branch
+git config --global alias.c commit
+git config --global alias.s status
+git config --global alias.st stash
+git config --global alias.a add
 
 
 # Adds the current branch to the bash prompt when the working directory is
@@ -145,19 +160,3 @@ PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(git_promp
 # }
 
 
-# Brightness
-function brightness(){
-	echo $1 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness
-}
-
-alias bb="brightness"
-alias probe="sudo -E hw-probe -all -upload"
-alias R='R --quiet'
-
-alias g="git"
-git config --global alias.ch checkout
-git config --global alias.b branch
-git config --global alias.c commit
-git config --global alias.s status
-git config --global alias.st stash
-git config --global alias.a add
