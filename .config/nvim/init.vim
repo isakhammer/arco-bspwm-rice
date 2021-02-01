@@ -167,31 +167,6 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
-"""""
-" TABULARIZE
-"""""
-
-" if exists(":Tabularize")
-"       nmap <Leader>D= :Tabularize /=<CR>
-"       vmap <Leader>D= :Tabularize /=<CR>
-"       nmap <Leader>D: :Tabularize /:\zs<CR>
-"       vmap <Leader>D: :Tabularize /:\zs<CR>
-" endif
-
-" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-" function! s:align()
-"   let p = '^\s*|\s.*\s|\s*$'
-"   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-"     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-"     let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-"     Tabularize/|/l1
-"     normal! 0
-"     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-"   endif
-" endfunction
-
-
 """""""
 " INDENTLINE:
 """""""
@@ -242,7 +217,9 @@ let g:ctrlp_prompt_mappings = {
 map <leader>F <Esc><Esc>:Files!<cr>
 map <leader>G <Esc><Esc>:Rg <cr>
 
-" fugitive git bindings
+"""""""""""""""""
+" FUGITIVE GIT BINDINGS
+"""""""""""""""""
 nnoremap <leader>Ga :Git add %:p<CR><CR>
 nnoremap <leader>Gs :Gstatus<CR>
 nnoremap <leader>Gc :Gcommit -v -q<CR>
