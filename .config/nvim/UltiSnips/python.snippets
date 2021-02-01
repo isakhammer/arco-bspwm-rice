@@ -11,16 +11,20 @@ $0
 endsnippet
 
 #! header
-snippet imp "matplotlib" b
-
+snippet template "matplotlib" b
+#!/usr/bin/env python
 import matplotlib.pyplot as plt
 import numpy as np
+import numpy.linalg.norm as norm
 $0
 endsnippet
-#! header
+
+snippet p "exit" b
+print($1)
+$0
+endsnippet
 
 snippet ee "exit" b
-
 exit()
 $0
 endsnippet
