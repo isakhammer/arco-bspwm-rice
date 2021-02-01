@@ -128,17 +128,19 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :qa!<CR>
 nmap <leader>x :wqa!<CR>
 
+" SMART LINE MOTIONS
+" Copy relative line
+nnoremap <leader>- :-co.<left><left><left>
+nnoremap <leader>_ :+co.<left><left><left>
+" Move relative line
+nnoremap - :-mo.<left><left><left>
+nnoremap _ :+mo.<left><left><left>
+
 " Save file as sudo on files that require root permission
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
-" buffer mappings
-" Is now buffer
-" nnoremap <leader>b :buffers<CR>:buffer<space>
-
-
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
-
 set splitright
 
 " Spelling correction when pressing ctrl L
