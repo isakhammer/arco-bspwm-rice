@@ -29,8 +29,7 @@ alias docker_socket='sudo chmod 777 /var/run/docker.sock'
 
 # binding ctrl-f to fuzzy search
 alias cz='cd "$(dirname "$(fzf)")" && ls'
-bind '"\C-f":"cz *\r"'
-
+bind '"\C-f":"cz \r"'
 
 # vi mode
 alias probe="sudo -E hw-probe -all -upload"
