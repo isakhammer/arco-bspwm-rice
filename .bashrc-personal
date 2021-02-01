@@ -69,18 +69,6 @@ git config --global alias.st stash
 git config --global alias.a add
 
 
-# Adds the current branch to the bash prompt when the working directory is
-# part of a Git repository. Includes color-coding and indicators to quickly
-# indicate the status of working directory.
-#
-# To use: Copy into ~/.bashrc and tweak if desired.
-#
-# Based upon the following gists:
-# <https://gist.github.com/henrik/31631>
-# <https://gist.github.com/srguiwiz/de87bf6355717f0eede5>
-# Modified by me, using ideas from comments on those gists.
-#
-# License: MIT, unless the authors of those two gists object :)
 
 git_branch() {
     # -- Finds and outputs the current branch name by parsing the list of
@@ -146,17 +134,11 @@ git_prompt() {
 # Sample prompt declaration based off of the default Ubuntu 14.04.1 color
 # prompt. Tweak as you see fit, or just stick "$(git_prompt)" into your
 # favorite prompt.
+
 PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(git_prompt)\[\033[00m\]\$ '
 
-
-# Brightness
-# function battery_notification(){
-    # battery_level=sudo cat /sys/class/power_supply/BAT1/capacity
-    # if [ $battery_level -le 65 ]
-    # then
-    #     echo "LOW BATTERY" + $battery_level
-    # fi
-    # echo $battery_level
-# }
-
-
+# Shorten the dir names,
+sps() {
+    echo `dirname $PWD` | sed -r 's|/(.)[^/]*|/\1|g'
+}
+# PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] $(eval "sps")/\W $(git_prompt)\[\033[00m\]\$ '
