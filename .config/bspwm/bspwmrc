@@ -93,8 +93,9 @@ bspc rule -a VirtualBox Machine state=fullscreen
 #bspc rule -a Vivaldi-snapshot desktop='^6' follow=on
 #bspc rule -a Transmission-gtk desktop='^7' follow=on
 #bspc rule -a Thunar desktop='^8' follow=on
-#bspc rule -a discord desktop='^9' follow=on
-#bspc rule -a Spotify desktop='^10' follow=on
+bspc rule -a discord desktop='^9' follow=on
+bspc rule -a slack desktop='^9' follow=on
+bspc rule -a Spotify desktop='^8' follow=on
 
 #Spotify fix  --move desktop 10
 #sleep 1

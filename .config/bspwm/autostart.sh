@@ -46,6 +46,7 @@ run volumeicon &
 #run thunar &
 #run dropbox &
 #run insync start &
-#run discord &
-#run spotify &
+run spotify &
+run slack &
+run discord &
 #run atom &
