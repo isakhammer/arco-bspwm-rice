@@ -21,8 +21,21 @@ alias ls="ls --color=auto"
 alias cf='cd ~/.config'
 
 alias vim="nvim"
+alias v="vim"
 alias se="vim ~/.bashrc-personal"
 alias r="ranger"
+
+function zathura_job(){
+    zathura "$1" & disown
+    # # hop zathura "$0" & disown
+    # exit
+}
+function zathura_close(){
+    zathura_job $1
+    exit
+}
+alias z="zathura_job"
+alias zc="zathura_close"
 
 alias docker='sudo docker'
 alias docker_socket='sudo chmod 777 /var/run/docker.sock'
