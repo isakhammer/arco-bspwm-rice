@@ -70,8 +70,6 @@ set shiftwidth=4        " number of spaces to use for auto indent
 set colorcolumn=80      " color for column after 80 tegn
 set smartindent         " copy indent from current line when starting a new line
 
-
-
 """""""
 " BASICS
 """""""

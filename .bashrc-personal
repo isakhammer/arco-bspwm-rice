@@ -71,7 +71,7 @@ function brightness(){
 }
 alias bb="brightness"
 
-
+# Basic git aliases
 alias g="git"
 git config --global alias.ch checkout
 git config --global alias.b branch
@@ -81,7 +81,7 @@ git config --global alias.st stash
 git config --global alias.a add
 
 
-
+# Function used to evaluate PS1
 git_branch() {
     # -- Finds and outputs the current branch name by parsing the list of
     #    all branches
