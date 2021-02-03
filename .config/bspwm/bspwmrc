@@ -96,9 +96,13 @@ bspc rule -a Galculator state=floating
 #bspc rule -a Vivaldi-snapshot desktop='^6' follow=on
 #bspc rule -a Transmission-gtk desktop='^7' follow=on
 #bspc rule -a Thunar desktop='^8' follow=on
-bspc rule -a discord desktop='^9' follow=on
-bspc rule -a slack desktop='^9' follow=on
+
+# bspc config ignore_ewmh_focus true
 bspc rule -a Spotify desktop='^8' follow=on
+bspc rule -a chromium --new-window www.messenger.com desktop='^8' follow=off
+bspc rule -a discord desktop='^9' follow=off
+bspc rule -a slack desktop='^9' follow=off
+
 
 #Spotify fix  --move desktop 10
 #sleep 1

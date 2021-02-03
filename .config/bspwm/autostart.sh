@@ -48,5 +48,10 @@ run volumeicon &
 #run insync start &
 run spotify &
 run slack &
+chromium --new-window www.messenger.com &
+
+ # waiting on internet connection
+# sleep 10 && run discord &
 run discord &
+
 #run atom &
