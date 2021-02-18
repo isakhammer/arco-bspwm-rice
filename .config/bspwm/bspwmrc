@@ -103,6 +103,8 @@ bspc rule -a chromium --new-window www.messenger.com desktop='^8' follow=off
 bspc rule -a discord desktop='^9' follow=off
 bspc rule -a slack desktop='^9' follow=off
 
+bspc rule -a matplotlib state=floating
+
 
 #Spotify fix  --move desktop 10
 #sleep 1

@@ -263,10 +263,16 @@ let g:vimtex_view_automatic=1
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 
+
 "
 " Clean directory of generated files
 nnoremap <localleader>lc :VimtexStop<cr>:VimtexClean<cr>
 nnoremap <localleader>lca :VimtexStop<cr>:VimtexClean!<cr>
+
+augroup vimtex_config
+  au!
+  au User VimtexEventQuit call vimtex#compiler#clean(0)
+augroup END
 
 " incscape-figures plug-in
 "inoremap <localleader>f <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
