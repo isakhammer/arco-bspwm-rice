@@ -21,16 +21,16 @@ alias ls="ls --color=auto"
 alias cf='cd ~/.config'
 
 alias vim="nvim"
-alias v="vim"
-alias se="vim ~/.bashrc-personal"
+alias v="nvim"
+alias se="nvim ~/.bashrc-personal"
 alias r="ranger"
 
 function zathura_job(){
+    # Open zathura as a job
     zathura "$1" & disown
-    # # hop zathura "$0" & disown
-    # exit
 }
 function zathura_close(){
+    # Open zathura as a job and close terminal
     zathura_job $1
     exit
 }
@@ -154,3 +154,4 @@ sps() {
     echo `dirname $PWD` | sed -r 's|/(.)[^/]*|/\1|g'
 }
 # PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] $(eval "sps")/\W $(git_prompt)\[\033[00m\]\$ '
+
