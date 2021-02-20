@@ -1,4 +1,8 @@
 let mapleader =","
+map <Space> <Nop>
+map <Space> <leader>
+
+
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
