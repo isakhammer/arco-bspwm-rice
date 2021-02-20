@@ -455,8 +455,8 @@ super + alt + {_,shift + }{Left,Down,Up,Right}
 	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
 
 # # rotate (the current node's group)/(all the nodes on the current monitor) 90/-90 degrees
-# super + {_,alt + } {_,shift + }r
-# 	bspc node @{parent,/} --rotate {_,-}90
+super + {_,alt + } {_,shift + }r
+	bspc node @{parent,/} --rotate {_,-}90
 
 #################################################################
 # SUPER + CONTROL KEYS
