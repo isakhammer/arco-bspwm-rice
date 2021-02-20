@@ -1,4 +1,4 @@
-Desktop/
+IiiDesktop/
 Documents/
 Downloads/
 Pictures/
@@ -123,3 +123,10 @@ Dockerfile
 remarkable/
 tmp/
 
+.bin/Snapchat-All-Memories-Downloader/
+.config/arcolinux-tweak-tool/
+.config/configstore/
+.config/opera/
+.config/vivaldi/
+.npm/
+.wget-hsts
