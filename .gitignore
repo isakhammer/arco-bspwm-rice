@@ -17,6 +17,9 @@ work
 .python_history*
 .python_history-04744.tmp
 .gitconfig
+.ipython/
+.jupyter/
+
 .docker/
 .mozilla/
 .viminfo
