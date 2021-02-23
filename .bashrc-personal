@@ -92,12 +92,22 @@ alias bb="brightness"
 
 # Basic git aliases
 alias g="git"
-git config --global alias.ch checkout
-git config --global alias.b branch
-git config --global alias.c commit
-git config --global alias.s status
-git config --global alias.st stash
-git config --global alias.a add
+
+alias gl="git log"
+alias gd="git diff"
+alias gqp="git stash pop"
+alias gq="git stash"
+alias gs="git status"
+alias gb="git branch"
+alias gch="git checkout"
+alias gchb="git checkout -b"
+alias ga="git add"
+alias gap="git add -p"
+alias gc="git_commit" # custom function
+alias gce="git commit -a --allow-empty-message -m ''"
+alias gp="git push origin HEAD"
+alias gpu="git pull"
+alias sgg="set_git_global_user"
 
 
 # Function used to evaluate PS1
