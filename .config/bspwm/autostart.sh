@@ -15,6 +15,7 @@ function run {
 
 $HOME/.config/polybar/launch.sh &
 
+
 #change your keyboard if you need it
 #setxkbmap -layout be
 
