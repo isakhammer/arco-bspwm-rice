@@ -3,6 +3,9 @@
 
 set r rate 300 50
 
+# Shortcuts
+source $HOME/.config/shortcutrc
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="urxvt"
@@ -91,6 +94,31 @@ function brightness(){
 alias bb="brightness"
 
 # Basic git aliases
+function git_clone_recursive()  {
+    arg=$1
+    git clone $arg --recurse-submodules
+}
+
+function git_commit()  {
+    array="${@}"
+    git commit -m"$array"
+}
+
+function git_stash_pop()  {
+    arg=$1
+    git stash pop stash@{$arg}
+}
+
+function get_file_from_commit() {
+    commit_id=$1
+    file_path=$2
+    git checkout $commit_id -- $file_path
+}
+function set_git_global_user() {
+    email=$1
+    git config --global user.email "$email"
+}
+
 alias g="git"
 
 alias gl="git log"
@@ -110,7 +138,7 @@ alias gpu="git pull"
 alias sgg="set_git_global_user"
 
 
-# Function used to evaluate PS1
+# Function used to evaluate PS1 in terminal
 git_branch() {
     # -- Finds and outputs the current branch name by parsing the list of
     #    all branches
