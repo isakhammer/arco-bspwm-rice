@@ -17,23 +17,28 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Python
 Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
+
 " Speed
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'simeji/winresizer'
-Plug 'Raimondi/delimitMate' "
+Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/clever-f.vim'
 " Plug 'metakirby5/codi.vim'
 " Plug 'godlygeek/tabular'
+Plug 'fholgado/minibufexpl.vim'
+
+" Auto completion
+Plug 'davidhalter/jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 
 " Latex
-Plug 'SirVer/ultisnips' " Python
+Plug 'SirVer/ultisnips' " Python3
 Plug 'lervag/vimtex' " Latexmk, zathura and texlive-most(AUR)
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'matze/vim-tex-fold'
@@ -50,9 +55,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'jpalardy/vim-slime'
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'davidhalter/jedi'
 Plug 'kassio/neoterm'
-Plug 'fholgado/minibufexpl.vim'
 call plug#end()
 
 """""""
@@ -267,8 +270,6 @@ let g:vimtex_view_automatic=1
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 
-
-"
 " Clean directory of generated files
 nnoremap <localleader>lc :VimtexStop<cr>:VimtexClean<cr>
 nnoremap <localleader>lca :VimtexStop<cr>:VimtexClean!<cr>
@@ -277,10 +278,6 @@ augroup vimtex_config
   au!
   au User VimtexEventQuit call vimtex#compiler#clean(0)
 augroup END
-
-" incscape-figures plug-in
-"inoremap <localleader>f <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-"nnoremap <localleader>f : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0

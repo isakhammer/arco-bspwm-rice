@@ -1,5 +1,5 @@
 # Default recolor
-set recolor                     "false"
+set recolor                     "true"
 
 # setting recolor-keep true will keep any color your pdf has.
 # if it is false, it'll just be black and white
@@ -46,7 +46,7 @@ set recolor-darkcolor           "#ebdbb2" # fg
 
 set recolor-keephue             true      # keep original color
 
-#set adjust-open "best-fit"
+# set adjust-open "best-fit"
 set adjust-open "width"
 
 set sandbox none
