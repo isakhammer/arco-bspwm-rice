@@ -41,7 +41,7 @@ function battery_task_job(){
         	[ "$capacity" -le 6 ] && [ "$status" == "Discharging" ] && notify-send -t 0 "Low battery. Sleep in 2min."
         	[ "$capacity" -le 4 ] && [ "$status" = "Discharging" ] && notify-send -t 0 "Critical battery level" && sleep 50 && systemctl suspend
         done
-        sleep 15
+        sleep 60
     done
 }
 battery_task_job &
@@ -61,6 +61,7 @@ alias zc="zathura_close"
 
 alias docker='sudo docker'
 alias docker_socket='sudo chmod 777 /var/run/docker.sock'
+alias docker_perm='sudo chown $USER:$USER'
 
 # binding ctrl-f to fuzzy search
 alias cz='cd "$(dirname "$(fzf)")" && ls'
@@ -88,10 +89,12 @@ alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
 alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
 
 # Brightness
-function brightness(){
+function brightness_manual(){
 	echo $1 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness
 }
-alias bb="brightness"
+alias bb="brightness_manual"
+alias bb1="brightness_manual 250"
+alias bb0="brightness_manual 0"
 
 # Basic git aliases
 function git_clone_recursive()  {

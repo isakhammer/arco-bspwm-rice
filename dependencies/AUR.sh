@@ -9,7 +9,7 @@ pacman -Sy nvim
 
 
 # Docker script
-pacman -Sy docker
+pacman -Sy docker docker-compose
 systemctl start docker.service
 systemctl enable docker.service
 
