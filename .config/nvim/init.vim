@@ -302,7 +302,11 @@ hi Conceal ctermbg=none
 """""""""""""""""""""""""""""""
 let g:UltiSnipsExpandTrigger='<c-space>'
 let g:UltiSnipsJumpForwardTrigger='<c-space>'
-let g:UltiSnipsJumpBackwardTrigger='<c-S-space>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+" let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsEditSplit="context"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
