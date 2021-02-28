@@ -28,6 +28,16 @@ alias v="nvim"
 alias se="nvim ~/.bashrc-personal"
 alias r="ranger"
 
+function shutdown(){
+    notify-send -t 0 "Shutdown"
+    sleep 15
+    # Rechecks condition
+    status=$(cat "$battery"/status 2>/dev/null) || break
+    [ "$status" = "Discharging" ] && systemctl suspend
+
+}
+
+
 function battery_task_job(){
     while :
     do
