@@ -12,6 +12,11 @@ export TERMINAL="urxvt"
 export BROWSER="chromium"
 export READER="zathura"
 
+# HDMI connection
+alias HDMI-LEFT="xrandr --output edp --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output hdmi-a-0 --mode 1920x1080 --pos 0x0 --rotate normal"
+alias HDMI-RIGHT="xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal"
+alias HDMI-SINGLE="xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off"
+
 # Vim mode
 set -o vi
 export KEYTIMEOUT=1
@@ -28,13 +33,9 @@ alias v="nvim"
 alias se="nvim ~/.bashrc-personal"
 alias r="ranger"
 
-function shutdown(){
-    notify-send -t 0 "Shutdown"
-    sleep 15
-    # Rechecks condition
+function shutdown_check(){
     status=$(cat "$battery"/status 2>/dev/null) || break
     [ "$status" = "Discharging" ] && systemctl suspend
-
 }
 
 
@@ -48,8 +49,11 @@ function battery_task_job(){
         	capacity=$(cat "$battery"/capacity 2>/dev/null) || break
         	status=$(cat "$battery"/status 2>/dev/null) || break
         	# If it is discharging and 25% or less, we will add a ❗ as a warning.
-        	[ "$capacity" -le 6 ] && [ "$status" == "Discharging" ] && notify-send -t 0 "Low battery. Sleep in 2min."
-        	[ "$capacity" -le 4 ] && [ "$status" = "Discharging" ] && notify-send -t 0 "Critical battery level" && sleep 50 && systemctl suspend
+        	[ "$capacity" -le 6 ] && [ "$status" == "Discharging" ] && notify-send -t 0 "Low battery."
+
+        	[ "$capacity" -le 4 ] && [ "$status" = "Discharging" ] &&
+                \ notify-send -t 0 "Critical battery level. Shutdown in 1min" &&
+                \ sleep 60 && shutdown_check
         done
         sleep 60
     done
