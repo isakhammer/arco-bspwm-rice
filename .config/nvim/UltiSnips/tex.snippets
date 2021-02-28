@@ -1,20 +1,12 @@
-
 global !p
-texMathZones = ['texMathZone']
-texTextZones = ['texMathText']
-texZones     = texMathZones + texTextZones
 def math():
-	synstackNames = vim.eval("map(synstack(line('.'), max([col('.') - 1, 1])), 'synIDattr(v:val, ''name'')')")
-	try:
-		first = next(
-            n for n in reversed(synstackNames)
-            if any(n.find(z) == 0 for z in texZones)
-        )
-		return any(first.find(z) == 0 for z in texMathZones)
-	except StopIteration:
-		return False
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+def comment():
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')")
+	return x != '0' and y != '0'
 endglobal
-
 ##############
 #  Template  #
 ##############
