@@ -20,7 +20,8 @@ endglobal
 ##############
 
 snippet tempdep "templat dependencies" b
-%%%% DEPENDENCIES v1.4 %%%%%%
+%
+%%%% DEPENDENCIES v1.5 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -34,12 +35,13 @@ snippet tempdep "templat dependencies" b
 \usepackage{esint}
 \usepackage{float}
 
+\usepackage{mathrsfs}
 
 \usepackage{hyperref}
 \hypersetup{
-	colorlinks=true, %set true if you want colored links
-	linktoc=all,     %set to all if you want both sections and subsections linked
-	linkcolor=blue,  %choose some color if you want links to stand out
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
 }
 \hypersetup{linktocpage}
 
@@ -60,8 +62,6 @@ snippet tempdep "templat dependencies" b
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 
-% \DeclareMathOperator{\span}{span}
-
 \DeclareMathOperator{\atantwo}{atan2}
 \DeclareMathOperator{\arctantwo}{arctan2}
 
@@ -70,11 +70,13 @@ snippet tempdep "templat dependencies" b
 %\newtheorem{example}{Example}
 
 \newcommand{\newpara}
-	{
-	\vskip 0.4cm
-	}
+    {
+    \vskip 0.4cm
+    }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
 
 endsnippet
 
@@ -351,12 +353,12 @@ endsnippet
 ######################
 
 snippet mk "Math" wA
-$${1}$`!p
+$${1: }$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 	snip.rv = ' '
 else:
 	snip.rv = ''
-`$2
+` $0
 endsnippet
 
 
@@ -1264,6 +1266,11 @@ endsnippet
 context "math()"
 snippet mfrak "math" iA
 \mathfrak{$1} $0
+endsnippet
+
+context "math()"
+snippet mcurl "math" iA
+\mathscr{$1} $0
 endsnippet
 ################
 #  æ-mappings  #
