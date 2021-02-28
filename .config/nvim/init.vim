@@ -344,6 +344,7 @@ hi CocWarningFloat guifg=#hex-color guibg=#hex-color
 hi CocHintFloat guifg=#hex-color guibg=#hex-color
 nmap <silent> gd <Plug>(coc-definition)
 
+
 """""
 " AIRLINE
 """""
