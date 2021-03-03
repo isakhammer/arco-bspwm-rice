@@ -160,18 +160,29 @@ snippet ssub "Subsubsection"
 \subsubsection{${1:${VISUAL:subsubsection name}}}%
 \label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
-snippet sssub "Subsubsubsection"
-\subsubsection{${1:${VISUAL:subsubsection name}}}%
-\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
 $0
 endsnippet
+
 
 snippet ssub* "Subsubsection"
 \subsubsection*{${1:${VISUAL:subsubsection name}}}%
 \label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${0}
+endsnippet
+
+snippet sssub "Subsubsubsection"
+\subsubsubsection{${1:${VISUAL:subsubsubsection name}}}%
+\label{sssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
+endsnippet
+
+snippet sssub* "Subsubsubsection"
+\subsubsubsection*{${1:${VISUAL:subsubsubsection name}}}%
+\label{sssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+$0
 endsnippet
 
 
@@ -1031,7 +1042,7 @@ snippet LL "column" iA
 endsnippet
 
 context "math()"
-snippet KK "row" iA
+snippet JJ "row" iA
 \\\
 $0
 endsnippet

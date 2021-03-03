@@ -3,4 +3,8 @@ numpy
 casadi
 matplotlib
 pyvim
+pynvim
+
+# Requirements for ranger
+ueberzug
 
