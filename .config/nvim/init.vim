@@ -16,6 +16,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 " Searching
 Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Python
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'kien/ctrlp.vim'
 
 " Speed
@@ -222,6 +223,16 @@ let g:ctrlp_prompt_mappings = {
 map <leader>F <Esc><Esc>:Files!<cr>
 map <leader>G <Esc><Esc>:Rg <cr>
 
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+"""""""""""""""""
+"  Vim-root
+"""""""""""""""""
+let g:rooter_patterns = ['.git']
+
 """""""""""""""""
 " FUGITIVE GIT BINDINGS
 """""""""""""""""
@@ -250,9 +261,14 @@ nnoremap <leader>Gpl :Dispatch! git pull<CR>
 """"""""""""""""""""""""""""""
 
 function EnableAutoSave()
-  let g:auto_save = 1
-  let g:auto_save_events = ["InsertLeave", 'TextChanged',"CursorHold", 'CursorHoldI']
-  "autocmd TextChanged,TextChangedI <buffer> silent write
+  " let g:auto_save = 1
+  " let g:auto_save_events = ["InsertLeave", 'TextChanged',"CursorHold", 'CursorHoldI']
+  " let g:auto_save_events = ["InsertLeave", 'TextChanged']
+  " autocmd TextChanged,TextChangedI, InsertLeave <buffer> silent write
+  autocmd TextChanged,TextChangedI * silent write
+
+  " autocmd TextChanged, InsertLeave <buffer> silent write
+  " let g:auto_save_silent = 1  " do not display the auto-save notification
 endfunction
 
 " Autosave for tex
@@ -307,25 +323,13 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsEditSplit="context"
 
+nnoremap <leader>e :UltiSnipsEdit<CR>
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""
-" CODI:
-""""""
-
-" " Change the color
-" highlight CodiVirtualText guifg=cyan
-
-" let g:codi#virtual_text_prefix = "❯ "
-" let g:codi#aliases = {
-"                    \ 'javascript.jsx': 'javascript',
-"                    \ }
-" map <leader>I :Codi<cr>
-
-"map <leader>r :w!<CR>:silent !chmod +x %:p<CR>:silent !%:p 2>&1 | tee ~/.vim/output<CR>: split $HOME/.cache/nvim/output<CR>:redraw!<CR>
 
 
 """""""
