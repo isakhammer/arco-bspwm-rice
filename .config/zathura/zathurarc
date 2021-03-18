@@ -46,8 +46,8 @@ set recolor-darkcolor           "#ebdbb2" # fg
 
 set recolor-keephue             true      # keep original color
 
-set adjust-open "best-fit"
-#set adjust-open "width"
+# set adjust-open "best-fit"
+set adjust-open "width"
 
 set sandbox none
 set statusbar-h-padding 0

@@ -13,7 +13,7 @@ endglobal
 
 snippet tempdep "templat dependencies" b
 %
-%%%% DEPENDENCIES v1.5 %%%%%%
+%%%% DEPENDENCIES v1.7 %%%%%%
 
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -53,6 +53,7 @@ snippet tempdep "templat dependencies" b
 \newmdtheoremenv{definition}{Definition}[section]
 \newmdtheoremenv{theorem}{Theorem}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
+\newmdtheoremenv{corollary}{Corollary}[section]
 
 \DeclareMathOperator{\atantwo}{atan2}
 \DeclareMathOperator{\arctantwo}{arctan2}
@@ -65,6 +66,11 @@ snippet tempdep "templat dependencies" b
     {
     \vskip 0.4cm
     }
+
+\usepackage{geometry}
+%\usepackage{showframe} %This line can be used to clearly show the new margins
+
+\newgeometry{vmargin={15mm}, hmargin={12mm,17mm}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -214,7 +220,25 @@ snippet lemmaA "Lemma" b
 \end{lemma}
 endsnippet
 
-snippet proposition "Proposition" b
+snippet corR "corollarry" b
+\begin{corollary}[${1:name}]
+	$0
+\end{corollary}
+endsnippet
+
+snippet corr "corollary" b
+\begin{corollary}
+	$0
+\end{corollary}
+endsnippet
+
+snippet propP "Proposition" b
+\begin{proposition}[${1:name}]
+	$0
+\end{proposition}
+endsnippet
+
+snippet propp "Proposition" b
 \begin{proposition}
 	$0
 \end{proposition}
