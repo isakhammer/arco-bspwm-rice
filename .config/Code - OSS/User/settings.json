@@ -35,29 +35,29 @@
           "before": ["<Leader>", "t", "o"],
           "commands": [":tabo"]
         },
-    
+
         {
             "before": ["<Leader>", "/"],
             "commands": [":noh"]
-        }, 
+        },
         {
             "before": ["leader", "w"],
             "commands": [
-                "workbench.action.files.save",
+                "workbench.action.files.save"
             ]
         },
         {
             "before": ["<Leader>", "p"],
             "commands": [
-                "workbench.action.showCommands",
+                "workbench.action.showCommands"
             ]
         },
         {
             "before": ["<Leader>", "t"],
             "commands": [
-                "workbench.action.gotoSymbol",
+                "workbench.action.gotoSymbol"
             ]
         }
-    
+
     ]
 }
