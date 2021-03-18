@@ -85,8 +85,18 @@ bind '"\C-f":"cz \r"'
 alias probe="sudo -E hw-probe -all -upload"
 alias R='R --quiet'
 
+function p3(){
+    if [ -n "$1" ]; then
+    	    mkdir -p ~/.cache/p3
+    	    touch ~/.cache/p3/pp
+    	    echo "cd $PWD && python3 $1 || cd -" > ~/.cache/p3/pp
+    fi
+
+    cat ~/.cache/p3/pp && bash ~/.cache/p3/pp
+}
 # Short term alias for python commands
-alias p3="python3"
+# alias p3="python3"
+
 function ppa(){
 	mkdir -p ~/.cache/ppa
 	touch ~/.cache/ppa/pp
