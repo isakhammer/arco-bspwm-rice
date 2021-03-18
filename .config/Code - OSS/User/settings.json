@@ -1,0 +1,63 @@
+{
+    "vim.leader": "<Space>",
+    "keyboard.dispatch": "keyCode",
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+          "before": ["<C-h>"],
+          "after": ["<C-w>", "h"]
+        },
+        {
+          "before": ["<C-j>"],
+          "after": ["<C-w>", "j"]
+        },
+        {
+          "before": ["<C-k>"],
+          "after": ["<C-w>", "k"]
+        },
+        {
+          "before": ["<C-l>"],
+          "after": ["<C-w>", "l"]
+        },
+        {
+          "before": ["<Leader>", "t", "t"],
+          "commands": [":tabnew"]
+        },
+        {
+          "before": ["<Leader>", "t", "n"],
+          "commands": [":tabnext"]
+        },
+        {
+          "before": ["<Leader>", "t", "p"],
+          "commands": [":tabprev"]
+        },
+        {
+          "before": ["<Leader>", "t", "o"],
+          "commands": [":tabo"]
+        },
+    
+        {
+            "before": ["<Leader>", "/"],
+            "commands": [":noh"]
+        }, 
+        {
+            "before": ["leader", "w"],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": ["<Leader>", "p"],
+            "commands": [
+                "workbench.action.showCommands",
+            ]
+        },
+        {
+            "before": ["<Leader>", "t"],
+            "commands": [
+                "workbench.action.gotoSymbol",
+            ]
+        }
+    
+    ]
+}
