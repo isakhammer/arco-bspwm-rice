@@ -6,6 +6,7 @@ pacman -Sy go
 pacman -Sy zathura
 pacman -Sy ranger
 pacman -Sy nvim
+pacman -Sy inkscape
 
 
 # Docker script

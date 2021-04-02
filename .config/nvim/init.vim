@@ -2,8 +2,6 @@ let mapleader =","
 map <Space> <Nop>
 map <Space> <leader>
 
-
-
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -133,6 +131,10 @@ nnoremap <leader>so :so $MYVIMRC<CR>
 nmap <leader>w :w!<cr>
 nmap <leader>q :qa!<CR>
 nmap <leader>x :wqa!<CR>
+
+" buffer movement
+nmap <leader>l :bn <CR>
+nmap <leader>h :bp <CR>
 
 " SMART LINE MOTIONS
 " Copy relative line
@@ -324,8 +326,6 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 let g:UltiSnipsEditSplit="context"
 
 nnoremap <leader>e :UltiSnipsEdit<CR>
-
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""

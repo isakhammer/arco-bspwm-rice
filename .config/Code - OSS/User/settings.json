@@ -1,6 +1,7 @@
 {
     "vim.leader": "<Space>",
     "keyboard.dispatch": "keyCode",
+    "vim.easymotion": true,
 
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -58,6 +59,134 @@
                 "workbench.action.gotoSymbol"
             ]
         }
-
-    ]
+    ],
+  "editor.lineNumbers":"relative",
+  "settings.cycle":[
+    {
+        "id":"lineNumber",
+        "overrideWorkspaceSettings":false,
+        "values":[
+          {
+              "editor.lineNumbers":"on"
+          },
+          {
+              "editor.lineNumbers":"relative"
+          }
+        ]
+    }
+  ],
+  // "vim.insertModeKeyBindings":[
+  //    {
+  //       "before":[
+  //          "j",
+  //          "k"
+  //       ],
+  //       "after":[
+  //          "<Esc>"
+  //       ],
+  //       "commands":[
+  //          {
+  //             "command":"settings.cycle.lineNumber"
+  //          }
+  //       ]
+  //    }
+  // ],
+  "vim.otherModesKeyBindingsNonRecursive":[
+    {
+        "before":[
+          "i"
+        ],
+        "after":[
+          "i"
+        ],
+        "commands":[
+          {
+              "command":"settings.cycle.lineNumber"
+          }
+        ]
+    },
+    {
+        "before":[
+          "I"
+        ],
+        "after":[
+          "I"
+        ],
+        "commands":[
+          {
+              "command":"settings.cycle.lineNumber"
+          }
+        ]
+    },
+    {
+        "before":[
+          "a"
+        ],
+        "after":[
+          "a"
+        ],
+        "commands":[
+          {
+              "command":"settings.cycle.lineNumber"
+          }
+        ]
+    },
+    {
+        "before":[
+          "A"
+        ],
+        "after":[
+          "A"
+        ],
+        "commands":[
+          {
+              "command":"settings.cycle.lineNumber"
+          }
+        ]
+    },
+    {
+        "before":[
+          "o"
+        ],
+        "after":[
+          "o"
+        ],
+        "commands":[
+          {
+              "command":"settings.cycle.lineNumber"
+          }
+        ]
+    },
+    {
+        "before":[
+          "O"
+        ],
+        "after":[
+          "O"
+        ],
+        "commands":[
+          {
+              "command":"settings.cycle.lineNumber"
+          }
+        ]
+    }
+  ]
+  "vim.visualModeKeyBindings": [
+    {
+        "before": [
+            ">"
+        ],
+        "commands": [
+            "editor.action.indentLines"
+        ]
+    },
+    {
+        "before": [
+            "<"
+        ],
+        "commands": [
+            "editor.action.outdentLines"
+        ]
+    },
+]
 }
