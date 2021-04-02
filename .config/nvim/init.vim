@@ -107,7 +107,6 @@ set wildmode=longest,list,full
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Splits open at the bottom and right,
 " which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
@@ -191,7 +190,7 @@ map , <Plug>(clever-f-repeat-back)
 " GOYO:
 """""""
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>y :Goyo \| set bg=light \| set linebreak<CR>
+map <leader>y :Goyo
 
 
 """""""
@@ -235,24 +234,24 @@ let g:fzf_action = {
 """""""""""""""""
 let g:rooter_patterns = ['.git']
 
-"""""""""""""""""
-" FUGITIVE GIT BINDINGS
-"""""""""""""""""
-nnoremap <leader>Ga :Git add %:p<CR><CR>
-nnoremap <leader>Gs :Gstatus<CR>
-nnoremap <leader>Gc :Gcommit -v -q<CR>
-nnoremap <leader>Gt :Gcommit -v -q %:p<CR>
-nnoremap <leader>Gd :Gdiff<CR>
-nnoremap <leader>Ge :Gedit<CR>
-nnoremap <leader>Gr :Gread<CR>
-nnoremap <leader>Gw :Gwrite<CR><CR>
-nnoremap <leader>Gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>Gp :Ggrep<Space>
-nnoremap <leader>Gm :Gmove<Space>
-nnoremap <leader>Gb :Git branch<Space>
-nnoremap <leader>Go :Git checkout<Space>
-nnoremap <leader>Gps :Dispatch! git push<CR>
-nnoremap <leader>Gpl :Dispatch! git pull<CR>
+""""""""""""""""""
+"" FUGITIVE GIT BINDINGS
+""""""""""""""""""
+"nnoremap <leader>Ga :Git add %:p<CR><CR>
+"nnoremap <leader>Gs :Gstatus<CR>
+"nnoremap <leader>Gc :Gcommit -v -q<CR>
+"nnoremap <leader>Gt :Gcommit -v -q %:p<CR>
+"nnoremap <leader>Gd :Gdiff<CR>
+"nnoremap <leader>Ge :Gedit<CR>
+"nnoremap <leader>Gr :Gread<CR>
+"nnoremap <leader>Gw :Gwrite<CR><CR>
+"nnoremap <leader>Gl :silent! Glog<CR>:bot copen<CR>
+"nnoremap <leader>Gp :Ggrep<Space>
+"nnoremap <leader>Gm :Gmove<Space>
+"nnoremap <leader>Gb :Git branch<Space>
+"nnoremap <leader>Go :Git checkout<Space>
+"nnoremap <leader>Gps :Dispatch! git push<CR>
+"nnoremap <leader>Gpl :Dispatch! git pull<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" LATEX SETUP """""""""""""""""""""""""
@@ -267,10 +266,10 @@ function EnableAutoSave()
   " let g:auto_save_events = ["InsertLeave", 'TextChanged',"CursorHold", 'CursorHoldI']
   " let g:auto_save_events = ["InsertLeave", 'TextChanged']
   " autocmd TextChanged,TextChangedI, InsertLeave <buffer> silent write
-  autocmd TextChanged,TextChangedI * silent write
-
   " autocmd TextChanged, InsertLeave <buffer> silent write
   " let g:auto_save_silent = 1  " do not display the auto-save notification
+
+  autocmd TextChanged,TextChangedI * silent write
 endfunction
 
 " Autosave for tex
