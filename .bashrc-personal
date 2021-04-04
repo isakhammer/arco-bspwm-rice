@@ -60,7 +60,6 @@ function battery_task_job(){
 }
 battery_task_job &
 
-
 function zathura_job(){
     # Open zathura as a job
     zathura "$1" & disown
@@ -91,7 +90,6 @@ function p3(){
     	    touch ~/.cache/p3/pp
     	    echo "cd $PWD && python3 $1 || cd -" > ~/.cache/p3/pp
     fi
-
     cat ~/.cache/p3/pp && bash ~/.cache/p3/pp
 }
 # Short term alias for python commands
@@ -109,6 +107,7 @@ function ppa1(){
 	echo "cd $PWD && python3 $1 || cd -" > ~/.cache/ppa/pp1
 }
 
+alias p="p3"
 alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
 alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
 
