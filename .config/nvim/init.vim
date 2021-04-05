@@ -323,7 +323,6 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " let g:UltiSnipsEditSplit="vertical"
 " let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsEditSplit="context"
-
 nnoremap <leader>e :UltiSnipsEdit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
