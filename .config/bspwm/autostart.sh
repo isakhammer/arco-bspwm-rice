@@ -40,6 +40,7 @@ picom --config $HOME/.config/bspwm/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 run volumeicon &
+run xfce4-clipman &
 #nitrogen --restore &
 #run caffeine &
 #run vivaldi-stable &

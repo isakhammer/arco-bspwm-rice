@@ -221,7 +221,7 @@ ex ()
 
 [[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
 
-neofetch
-acpi
+# neofetch
+# acpi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -84,6 +84,15 @@ bind '"\C-f":"cz \r"'
 alias probe="sudo -E hw-probe -all -upload"
 alias R='R --quiet'
 
+function ca(){
+    if [ -n "$1" ]; then
+    	    mkdir -p ~/.cache/ca
+    	    touch ~/.cache/ca/ca
+    	    echo "cd $PWD" > ~/.cache/ca/ca
+    fi
+    cat ~/.cache/ca/ca && bash ~/.cache/ca/ca
+}
+
 function p3(){
     if [ -n "$1" ]; then
     	    mkdir -p ~/.cache/p3
@@ -118,6 +127,15 @@ function brightness_manual(){
 alias bb="brightness_manual"
 alias bb1="brightness_manual 250"
 alias bb0="brightness_manual 0"
+
+# backtrack
+function backtrack(){
+    mkdir -p ~/.cache/k
+    touch ~/.cache/k/kk
+    echo "cd $PWD" > ~/.cache/k/kk
+}
+cat ~/.cache/k/kk && . ~/.cache/k/kk
+alias k="backtrack"
 
 # Basic git aliases
 function git_clone_recursive()  {
@@ -240,4 +258,8 @@ sps() {
 # HDMI-LEFT.sh  HDMI-RIGHT.sh  single.sh
 alias webcamera="guvcview"
 alias webcamera1="mpv /dev/video0"
+alias server="python -m http.server"
+
+
+# alias public_ip="curl ifconfig.me"
 

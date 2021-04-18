@@ -16,6 +16,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Py
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'kien/ctrlp.vim'
+" Plug 'puremourning/vimspector'
+
 
 " Speed
 Plug 'unblevable/quick-scope'
@@ -27,7 +29,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'rhysd/clever-f.vim'
+" Plug 'rhysd/clever-f.vim'
 " Plug 'metakirby5/codi.vim'
 " Plug 'godlygeek/tabular'
 Plug 'fholgado/minibufexpl.vim'
@@ -183,8 +185,8 @@ let g:indentLine_setConceal = 0
 """""""
 " Clever f:
 """""""
-map ; <Plug>(clever-f-repeat-forward)
-map , <Plug>(clever-f-repeat-back)
+" map ; <Plug>(clever-f-repeat-forward)
+" map , <Plug>(clever-f-repeat-back)
 
 """""""
 " GOYO:

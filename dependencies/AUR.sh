@@ -7,6 +7,8 @@ pacman -Sy zathura
 pacman -Sy ranger
 pacman -Sy nvim
 pacman -Sy inkscape
+pacman -Sy xfce4-clipman-plugin
+
 
 
 # Docker script
