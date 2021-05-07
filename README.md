@@ -1,2 +1,3 @@
 # Personal Arch Linux dotfiles
-Personal post configuration after this setup installation: https://github.com/arcolinuxd/arco-bspwm
+Currently based on the setup installed by [arco-bspwm](https://github.com/arcolinuxd/arco-bspwm)
+Probably works on any arch linux setup.
