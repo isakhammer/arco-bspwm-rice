@@ -48,7 +48,7 @@ Plug '907th/vim-auto-save'
 " Appearance
 Plug 'djoshea/vim-autoread'
 Plug 'Yggdroot/indentLine'
-" Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
@@ -58,6 +58,21 @@ Plug 'jpalardy/vim-slime'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'kassio/neoterm'
 call plug#end()
+"""
+" Vimspector
+"""
+" let g:vimspector_enable_mappings = 'HUMAN'
+" packadd! vimspector
+
+
+" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
+
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
+nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
 
 """""""
 " GRUVBOX
@@ -133,6 +148,12 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :qa!<CR>
 nmap <leader>x :wqa!<CR>
 
+" Move across wrapped lines like regular lines
+"Go to the first non-blank character of a line
+noremap 0 ^
+"Just in case you need to go to the very beginning of a line
+noremap ^ 0
+
 " buffer movement
 nmap <leader>l :bn <CR>
 nmap <leader>h :bp <CR>
@@ -152,13 +173,13 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 autocmd BufWritePre * %s/\s\+$//e
 set splitright
 
-" Spelling correction when pressing ctrl L
-"setlocal spell
-"hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
-"set spelllang=en_gb
-"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-" Spell-check set to <leader>o, 'o' for 'orthography':
-"map <leader>O :setlocal spell! spelllang=en_us<CR>
+ " Spelling correction when pressing ctrl L
+" setlocal spell
+" hi SpellBad    ctermfg=none      ctermbg=none     cterm=none      guifg=none   guibg=none gui=none
+" set spelllang=en_gb
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+ " Spell-check set to <leader>o, 'o' for 'orthography':
+" map <leader>O :setlocal spell! spelllang=en_us<CR>
 
 
 "autocmd BufWritepre * %s/\n\+\%$//e
@@ -175,6 +196,10 @@ autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 if &diff
     highlight! link DiffText MatchParen
 endif
+
+" Convinient indentation
+vnoremap < <gv
+vnoremap > >gv
 
 """""""
 " INDENTLINE:
@@ -236,24 +261,6 @@ let g:fzf_action = {
 """""""""""""""""
 let g:rooter_patterns = ['.git']
 
-""""""""""""""""""
-"" FUGITIVE GIT BINDINGS
-""""""""""""""""""
-"nnoremap <leader>Ga :Git add %:p<CR><CR>
-"nnoremap <leader>Gs :Gstatus<CR>
-"nnoremap <leader>Gc :Gcommit -v -q<CR>
-"nnoremap <leader>Gt :Gcommit -v -q %:p<CR>
-"nnoremap <leader>Gd :Gdiff<CR>
-"nnoremap <leader>Ge :Gedit<CR>
-"nnoremap <leader>Gr :Gread<CR>
-"nnoremap <leader>Gw :Gwrite<CR><CR>
-"nnoremap <leader>Gl :silent! Glog<CR>:bot copen<CR>
-"nnoremap <leader>Gp :Ggrep<Space>
-"nnoremap <leader>Gm :Gmove<Space>
-"nnoremap <leader>Gb :Git branch<Space>
-"nnoremap <leader>Go :Git checkout<Space>
-"nnoremap <leader>Gps :Dispatch! git push<CR>
-"nnoremap <leader>Gpl :Dispatch! git pull<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""" LATEX SETUP """""""""""""""""""""""""
@@ -354,3 +361,4 @@ nmap <silent> gd <Plug>(coc-definition)
 """""
 call airline#parts#define_function('coc_status', 'coc#status')
 let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
+

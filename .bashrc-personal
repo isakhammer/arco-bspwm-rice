@@ -78,7 +78,9 @@ alias docker_perm='sudo chown $USER:$USER'
 
 # binding ctrl-f to fuzzy search
 alias cz='cd "$(dirname "$(fzf)")" && ls'
+# alias cza='zathura_close "$(find -iname "*.pdf" | fzf")"'
 bind '"\C-f":"cz \r"'
+
 
 # vi mode
 alias probe="sudo -E hw-probe -all -upload"
@@ -259,7 +261,6 @@ sps() {
 alias webcamera="guvcview"
 alias webcamera1="mpv /dev/video0"
 alias server="python -m http.server"
-
 
 # alias public_ip="curl ifconfig.me"
 
