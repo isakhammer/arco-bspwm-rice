@@ -15,14 +15,22 @@ snippet template "header template" b
 #!/usr/bin/env python
 import matplotlib.pyplot as plt
 import numpy as np
-import numpy.linalg.norm as norm
+from numpy.linalg import norm
 import numpy.linalg as lg
-$0
+
+if __name__ == "__main__":
+	$0
 endsnippet
 
 snippet p "exit" b
 print($1)
 $0
+endsnippet
+
+snippet npmat "npmat" b
+$1 = np.array([
+	[$0],
+])
 endsnippet
 
 snippet ee "exit" b
@@ -34,6 +42,12 @@ snippet ifmain "ifmain" b
 if __name__ == "__main__":
 	$0
 endsnippet
+
+snippet ifmain "ifmain" b
+if __name__ == "__main__":
+	$0
+endsnippet
+
 
 ##########
 # COMMON #
