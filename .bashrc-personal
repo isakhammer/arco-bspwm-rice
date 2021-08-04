@@ -49,7 +49,9 @@ function battery_task_job(){
         	capacity=$(cat "$battery"/capacity 2>/dev/null) || break
         	status=$(cat "$battery"/status 2>/dev/null) || break
         	# If it is discharging and 25% or less, we will add a ❗ as a warning.
-        	[ "$capacity" -le 6 ] && [ "$status" == "Discharging" ] && notify-send -t 0 "Low battery."
+        	[ "$capacity" -le 6 ] && [ "$status" == "Discharging" ] &&
+                \ zenity --info --timeout=5 --title="Low battery" --text "$(date +%Y%m%d-%H%M%S): Low battery"
+                # \ notify-send -t 0 "Low battery."
 
         	[ "$capacity" -le 4 ] && [ "$status" = "Discharging" ] &&
                 \ notify-send -t 0 "Critical battery level. Shutdown in 1min" &&
@@ -58,6 +60,7 @@ function battery_task_job(){
         sleep 60
     done
 }
+
 battery_task_job &
 
 function zathura_job(){
@@ -103,6 +106,7 @@ function p3(){
     fi
     cat ~/.cache/p3/pp && bash ~/.cache/p3/pp
 }
+
 # Short term alias for python commands
 # alias p3="python3"
 
@@ -121,6 +125,9 @@ function ppa1(){
 alias p="p3"
 alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
 alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
+
+alias tmpy="mkdir -p ~/.cache/tmpy; touch ~/.cache/tmpy/tmpy.py; vim ~/.cache/tmpy/tmpy.py"
+alias pt="python3 ~/.cache/tmpy/tmpy.py"
 
 # Brightness
 function brightness_manual(){

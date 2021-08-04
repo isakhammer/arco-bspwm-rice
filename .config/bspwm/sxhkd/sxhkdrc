@@ -80,8 +80,8 @@ super + x
     arcolinux-logout
 
 #Rofi theme selector
-super + r
-    rofi-theme-selector
+# super + r
+#     rofi-theme-selector
 
 #Urxvt
 super + Return
@@ -295,8 +295,8 @@ ctrl + alt + a
 #################################################################
 
 ##Xcfe4-TaskManager
-#ctrl + shift + Escape
-#    xfce4-taskmanager
+ctrl + shift + Escape
+    xfce4-taskmanager
 
 
 #################################################################

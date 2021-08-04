@@ -31,7 +31,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'nelstrom/vim-visual-star-search'
 " Plug 'rhysd/clever-f.vim'
 " Plug 'metakirby5/codi.vim'
-" Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 Plug 'fholgado/minibufexpl.vim'
 
 " Auto completion
