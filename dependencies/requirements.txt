@@ -1,9 +1,13 @@
 jupyterlab
 numpy
+sympy
 casadi
 matplotlib
 pyvim
 pynvim
+jedi
+flake8
+autopep8
 
 # Requirements for ranger
 ueberzug
