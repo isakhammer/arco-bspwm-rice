@@ -1,13 +1,17 @@
+julia
 jupyterlab
 numpy
 sympy
 casadi
+scipy
 matplotlib
 pyvim
 pynvim
 jedi
 flake8
 autopep8
+diffeqpy
+numba
 
 # Requirements for ranger
 ueberzug
