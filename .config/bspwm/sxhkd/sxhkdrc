@@ -557,6 +557,10 @@ alt + space
 alt + shift + {h,j,k,l}
 	bspc node {@west -r -30,@south -r +30,@north -r -30,@east -r +30}
 
+# Expand tiled space
+alt + shift + {n,p}
+	bspc node {@south -r +350,@north -r -350}
+
 #################################################################
 # CTRL + ALT KEYS
 #################################################################
