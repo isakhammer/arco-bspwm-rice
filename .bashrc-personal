@@ -8,13 +8,15 @@ export EDITOR="nvim"
 export TERMINAL="urxvt"
 export BROWSER="chromium"
 export READER="zathura"
+
 # Shortcuts
 source $HOME/.config/shortcutrc
 
 # HDMI connection
-alias HDMI-LEFT="xrandr --output edp --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output hdmi-a-0 --mode 1920x1080 --pos 0x0 --rotate normal"
-alias HDMI-RIGHT="xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal"
-alias HDMI-SINGLE="xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off"
+alias hdmil="bash ~/.screenlayout/HDMI-LEFT.sh"
+alias hdmis="bash ~/.screenlayout/SINGLE.sh"
+alias screen_monitors="arandr"
+# alias HDMI-SINGLE="xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off"
 
 # Vim mode
 set -o vi
