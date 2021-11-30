@@ -64,8 +64,11 @@
 #    atom
 
 #Browser
+# super + w
+#     chromium -no-default-browser-check
+
 super + w
-    chromium -no-default-browser-check
+    google-chrome-stable
 
 #Conky-toggle
 super + c
