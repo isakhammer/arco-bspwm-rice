@@ -428,7 +428,7 @@ super + bracket{left,right}
 
 # set the window state
 super + space
-	bspc node -t {tiled,floating, pseudo_tiled}
+	bspc node -t {tiled, pseudo_tiled, floating }
 	# bspc node -t {tiled,floating, pseudo_tiled, fullscreen}
 
 # Move focus to other monitor
