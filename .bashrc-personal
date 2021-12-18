@@ -147,6 +147,15 @@ function backtrack(){
 cat ~/.cache/k/kk && . ~/.cache/k/kk
 alias k="backtrack"
 
+# Backtrack zathura
+function backtrack_kz(){
+    mkdir -p ~/.cache/kz
+    touch ~/.cache/kz/kkz
+    echo "cd $PWD && zathura $1 || cd -"+ > ~/.cache/kz/kkz
+}
+alias kz="backtrack_kz"
+alias kZ=". ~/.cache/kz/kkz"
+
 # Basic git aliases
 function git_clone_recursive()  {
     arg=$1

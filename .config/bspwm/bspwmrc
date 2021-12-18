@@ -57,7 +57,7 @@ bspc rule -a Spotify state=fullscreen
 bspc rule -a Vlc state=fullscreen
 bspc rule -a VirtualBox Manager state=fullscreen
 bspc rule -a VirtualBox Machine state=fullscreen
-bspc rule -a zathura state=fullscreen
+bspc rule -a zathura state=tiled
 #bspc rule -a Gimp state=fullscreen
 
 #Floating applications
