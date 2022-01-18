@@ -101,7 +101,7 @@ bspc rule -a Galculator state=floating
 bspc rule -a Spotify desktop='^9' follow=on
 # bspc rule -a chromium --new-window www.messenger.com desktop='^8' follow=off
 # bspc rule -a discord desktop='^9' follow=off
-bspc rule -a slack desktop='^8' follow=off
+# bspc rule -a slack desktop='^8' follow=off
 
 bspc rule -a matplotlib state=floating
 
