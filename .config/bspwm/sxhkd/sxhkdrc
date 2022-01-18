@@ -236,16 +236,16 @@ ctrl + alt + a
 #    variety -t
 #
 ##Wallpaper next
-#alt + n
-#    variety -n
+alt + n
+    variety -n
 #
 ##Wallpaper previous
 #alt + p
 #    variety -p
 #
 ##Wallpaper favorite
-#alt + f
-#    variety -f
+alt + f
+    variety -f
 #
 ##Wallpaper previous
 #alt + Left
@@ -256,8 +256,8 @@ ctrl + alt + a
 #    variety -n
 #
 ##Wallpaper toggle-pause
-#alt + Up
-#    variety --toggle-pause
+alt + Up
+    variety --toggle-pause
 #
 ##Wallpaper resume
 #alt + Down
