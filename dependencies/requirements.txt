@@ -2,11 +2,12 @@ julia
 jupyterlab
 numpy
 sympy
-casadi
+#casadi
 scipy
 matplotlib
 pyvim
 pynvim
+neovim
 jedi
 flake8
 autopep8
