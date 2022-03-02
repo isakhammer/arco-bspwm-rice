@@ -49,7 +49,7 @@ run xfce4-clipman &
 #run dropbox &
 #run insync start &
 run spotify &
-run slack &
+#run slack &
 # chromium --new-window www.messenger.com &
 
  # waiting on internet connection

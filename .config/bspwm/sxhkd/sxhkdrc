@@ -189,8 +189,8 @@ super + shift + s
 #    pamac-manager
 #
 ##Xfce4-settings-manager
-#ctrl + alt + m
-#     xfce4-settings-manager
+ctrl + alt + m
+     xfce4-settings-manager
 #
 ##Pulse Audio Control
 #ctrl + alt + u

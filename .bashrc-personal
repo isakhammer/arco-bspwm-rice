@@ -77,7 +77,7 @@ function zathura_close(){
 alias z="zathura_job"
 alias zc="zathura_close"
 
-alias docker='sudo docker'
+#alias docker='sudo docker'
 alias docker_socket='sudo chmod 777 /var/run/docker.sock'
 alias docker_perm='sudo chown $USER:$USER'
 
