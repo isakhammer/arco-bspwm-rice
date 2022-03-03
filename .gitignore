@@ -167,3 +167,10 @@ notes
 tabbed/
 *.pdf
 
+.config/Microsoft/
+.config/google-chrome/
+.config/inkscape/
+.config/matplotlib/
+.config/teams/
+
+
