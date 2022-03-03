@@ -25,6 +25,7 @@ setxkbmap -option caps:swapescape
 #setxkbmap -option caps:none
 
 # basic aliases
+alias tex_template="cp -r ~/.latex_template/* $PWD"
 alias f="fg"
 alias so="source ~/.bashrc"
 alias c="clear && ls"

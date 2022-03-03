@@ -1,7 +1,5 @@
 # vim: filetype=sh
 alias cac="cd $HOME/.cache && ls -a" \
-cf="cd $HOME/.config && ls -a" \
-cfb="cd $HOME/.config/bspwm && ls -a" \
 D="cd $HOME/Downloads && ls -a" \
 dt="cd $HOME/.local/share && ls -a" \
 h="cd $HOME && ls -a" \
@@ -12,8 +10,13 @@ wm="cd $HOME/work/research/applied-mathematics && ls -a" \
 wms="cd $HOME/work/research/statistics && ls -a" \
 wmn="cd $HOME/work/research/applied-mathematics/numerical-analysis && ls -a" \
 wmf="cd $HOME/work/research/applied-mathematics/functional-analysis && ls -a" \
+wrch="cd $HOME/work/research/applied-mathematics/cahn-hilliard" \
+wch="cd $HOME/work/FEM_cahn_hilliard" \
+cf="cd $HOME/.config && ls -a" \
+cfb="cd $HOME/.config/bspwm && ls -a" \
 cfv="$EDITOR $HOME/.config/nvim/init.vim" \
 cfr="$EDITOR $HOME/.config/ranger/rc.conf" \
 cfs="$EDTOR $HOME/.config/shortcutrc" \
 cfx="$EDTOR $HOME/.config/Xresources" \
 cfz="$EDITOR $HOME/.config/zathura/zathurarc" \
+
