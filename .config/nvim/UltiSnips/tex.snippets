@@ -622,10 +622,22 @@ endsnippet
 
 # Common definitions
 
+context "math()"
+snippet mean "mean" w
+\mean{ \frac{\partial ${1}}{\partial ${2}} }  $0
+endsnippet
+
+context "math()"
+snippet jump "jump" w
+\jump{ \frac{\partial ${1}}{\partial ${2}} }  $0
+endsnippet
+
+context "math()"
 snippet taylor "taylor" w
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
+context "math()"
 snippet rij "mrij" i
 (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
 endsnippet
@@ -946,7 +958,7 @@ endsnippet
 
 context "math()"
 snippet part "d/dx" w
-\frac{\partial ${1}}{\partial ${2}} $0
+\frac{\partial ${1}}{\partial  ${2}} $0
 endsnippet
 
 # snippet dell "dx" w
@@ -1112,10 +1124,6 @@ snippet tikzNode "Tikz node" w
 $0
 endsnippet
 
-context "math()"
-snippet mcal "mathcal" iA
-\mathcal{$1} $0
-endsnippet
 
 
 priority 100
@@ -1314,6 +1322,11 @@ endsnippet
 context "math()"
 snippet mfrak "math" iA
 \mathfrak{$1} $0
+endsnippet
+
+context "math()"
+snippet mcal "mathcal" iA
+\mathcal{$1} $0
 endsnippet
 
 context "math()"
