@@ -327,10 +327,11 @@ endif
 "       \ 'math_fracs': 1,
 "       \ 'math_super_sub': 1,
 "       \ 'math_symbols': 1,
-"       \ 'sections': 0,
+"       \ 'sections': 1,
 "       \ 'styles': 1,
 "       \}
-let g:vimtex_syntax_conceal_default = 0
+let g:vimtex_syntax_enabled=0
+
 
 
 """"""""""""""""""""""""""""""
@@ -342,8 +343,7 @@ let g:tex_conceal='abdmg'
 hi Conceal ctermbg=none
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
-
-"let g:tex_conceal_frac=1
+let g:tex_conceal_frac=1
 
 """"""""""""""""""""""""""""""
 " => Ulti Snips Plugin

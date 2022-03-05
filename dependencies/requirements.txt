@@ -5,10 +5,6 @@ sympy
 #casadi
 scipy
 matplotlib
-pyvim
-pynvim
-neovim
-jedi
 flake8
 autopep8
 diffeqpy
@@ -16,4 +12,13 @@ numba
 
 # Requirements for ranger
 ueberzug
+
+#vim
+pynvim
+neovim
+pyvim
+jedi
+
+# Ultisnip
+unidecode
 
