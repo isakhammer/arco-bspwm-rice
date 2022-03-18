@@ -10,7 +10,6 @@ pacman -Sy inkscape
 pacman -Sy xfce4-clipman-plugin
 
 
-
 # Docker script
 pacman -Sy docker docker-compose
 systemctl start docker.service
