@@ -42,7 +42,9 @@ alias vim="nvim"
 alias v="nvim"
 alias se="nvim ~/.bashrc-personal"
 alias r="ranger"
-alias workbox="bash ~/work/workbox/run_workbox.sh"
+alias wb="bash ~/work/workbox/run_workbox.sh"
+alias wbj="bash ~/work/workbox/run_workbox.sh jupyter"
+alias wbp="docker pull isakhammer/workbox:latest"
 
 function shutdown_check(){
     status=$(cat "$battery"/status 2>/dev/null) || break
