@@ -22,7 +22,6 @@ alias screen_monitors="arandr"
 set -o vi
 export KEYTIMEOUT=1
 setxkbmap -option caps:swapescape
-#setxkbmap -option caps:none
 
 # basic aliases
 function latex_template(){
