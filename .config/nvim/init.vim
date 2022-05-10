@@ -11,13 +11,12 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
+
 " Searching
 Plug 'junegunn/fzf', { 'dir': '~/.local/lib/fzf', 'do': './install --all' } " Python
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'kien/ctrlp.vim'
-" Plug 'puremourning/vimspector'
-
 
 " Speed
 Plug 'unblevable/quick-scope'
@@ -29,8 +28,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nelstrom/vim-visual-star-search'
-" Plug 'rhysd/clever-f.vim'
-" Plug 'metakirby5/codi.vim'
 Plug 'godlygeek/tabular'
 Plug 'fholgado/minibufexpl.vim'
 
@@ -54,25 +51,11 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
 " Plug 'vimwiki/vimwiki'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'jpalardy/vim-slime'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'kassio/neoterm'
+Plug 'jpalardy/vim-slime'
 call plug#end()
-"""
-" Vimspector
-"""
-" let g:vimspector_enable_mappings = 'HUMAN'
-" packadd! vimspector
 
-
-" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
-
-" for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
-" for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
-nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
-nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
 
 """""""
 " GRUVBOX
@@ -383,4 +366,5 @@ nmap <silent> gd <Plug>(coc-definition)
 """""
 call airline#parts#define_function('coc_status', 'coc#status')
 let g:airline_section_y = airline#section#create_right(['coc_status','ffenc'])
+
 

@@ -289,5 +289,9 @@ alias webcamera="guvcview"
 alias webcamera1="mpv /dev/video0"
 alias server="python -m http.server"
 
-# alias public_ip="curl ifconfig.me"
+#fix to error: insufficient permission for adding an object to repository database .git/objects. error: Error building tree
+alias fix_perm='sudo chown -R "${USER:-$(id -un)}" .'
+
+alias next_bg="variety -n"
+alias fav_bg="variety -f"
 

@@ -100,6 +100,13 @@ URxvt*imFont:               	xft:Monospace:regular:size=12
 URxvt*boldFont:             	xft:Monospace:bold:size=12
 URxvt*italicFont:           	xft:Monospace:italic:size=12
 URxvt*boldItalicFont:     		xft:Monospace:regular:size=12
+
+/* URxvt*letterSpace: 	    		-2 */
+/* URxvt*font:                 	xft:JuliaMono:regular:size=12 */
+/* URxvt*imFont:               	xft:JuliaMono:regular:size=12 */
+/* URxvt*boldFont:             	xft:JuliaMono:bold:size=12 */
+/* URxvt*italicFont:           	xft:JuliaMono:italic:size=12 */
+/* URxvt*boldItalicFont:     		xft:JuliaMono:regular:size=12 */
 ! run :.!fc-list | grep <font-name>
 
 ! perl extensions
