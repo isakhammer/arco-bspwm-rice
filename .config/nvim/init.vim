@@ -39,12 +39,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Npm
 Plug 'SirVer/ultisnips' " Python3
 Plug 'lervag/vimtex' " Latexmk, zathura and texlive-most(AUR)
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-Plug 'matze/vim-tex-fold'
-Plug '907th/vim-auto-save'
+"Plug 'matze/vim-tex-fold'
+"Plug '907th/vim-auto-save'
 
 " Appearance
 Plug 'djoshea/vim-autoread'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-startify'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'

@@ -11,6 +11,7 @@ export READER="zathura"
 
 # Shortcuts
 source $HOME/.config/shortcutrc
+alias hwr="cat $HOME/.config/shortcutrc"
 
 # HDMI connection
 alias hdmil="bash ~/.screenlayout/HDMI-LEFT.sh"
@@ -44,6 +45,7 @@ alias r="ranger"
 alias wb="bash ~/work/workbox/run_workbox.sh"
 alias wbj="bash ~/work/workbox/run_workbox.sh jupyter"
 alias wbp="docker pull isakhammer/workbox:latest"
+
 
 function shutdown_check(){
     status=$(cat "$battery"/status 2>/dev/null) || break
@@ -89,6 +91,7 @@ alias zc="zathura_close"
 #alias docker='sudo docker'
 alias docker_socket='sudo chmod 777 /var/run/docker.sock'
 alias docker_perm='sudo chown $USER:$USER'
+alias remove_docker="docker rmi $(docker images -a -q)"
 
 # binding ctrl-f to fuzzy search
 alias cz='cd "$(dirname "$(fzf)")" && ls'
