@@ -8,7 +8,7 @@ export EDITOR="nvim"
 export TERMINAL="urxvt"
 export BROWSER="chromium"
 export READER="zathura"
-
+export JULIA_NUM_THREADS=8
 # Shortcuts
 source $HOME/.config/shortcutrc
 alias hwr="cat $HOME/.config/shortcutrc"
@@ -18,6 +18,8 @@ alias hdmil="bash ~/.screenlayout/HDMI-LEFT.sh"
 alias hdmis="bash ~/.screenlayout/SINGLE.sh"
 alias screen_monitors="arandr"
 # alias HDMI-SINGLE="xrandr --output eDP --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off"
+
+alias Date="date +%F"
 
 # Vim mode
 set -o vi
@@ -38,10 +40,15 @@ alias c="clear && ls"
 alias ls="ls --color=auto"
 alias cf='cd ~/.config'
 
+alias mtj='cd ~/work/master_thesis/master_thesis/julia/'
+alias mtl='cd ~/work/master_thesis/master_thesis/latex/'
+
 alias vim="nvim"
+alias vimwb="bash ~/work/workbox/run_vim.sh"
 alias v="nvim"
 alias se="nvim ~/.bashrc-personal"
 alias r="ranger"
+alias mr="cd /home/isak/work/research/applied-mathematics && ranger"
 alias wb="bash ~/work/workbox/run_workbox.sh"
 alias wbj="bash ~/work/workbox/run_workbox.sh jupyter"
 alias wbp="docker pull isakhammer/workbox:latest"
@@ -63,10 +70,10 @@ function battery_task_job(){
         	capacity=$(cat "$battery"/capacity 2>/dev/null) || break
         	status=$(cat "$battery"/status 2>/dev/null) || break
         	# If it is discharging and 25% or less, we will add a ❗ as a warning.
-        	[ "$capacity" -le 6 ] && [ "$status" == "Discharging" ] && zenity --info --timeout=5 --title="Low battery" --text "$(date +%Y%m%d-%H%M%S): Low battery"
+        	[ "$capacity" -le 10 ] && [ "$status" == "Discharging" ] && zenity --info --timeout=5 --title="Low battery" --text "$(date +%Y%m%d-%H%M%S): Low battery"
                 # \ notify-send -t 0 "Low battery."
 
-        	[ "$capacity" -le 4 ] && [ "$status" = "Discharging" ] &&
+        	[ "$capacity" -le 8 ] && [ "$status" = "Discharging" ] &&
                 \ notify-send -t 0 "Critical battery level. Shutdown in 1min" &&
                 \ sleep 60 && shutdown_check
         done
@@ -139,6 +146,7 @@ function ppa1(){
 alias p="p3"
 alias pp="cat ~/.cache/ppa/pp && bash ~/.cache/ppa/pp "
 alias pp1="cat ~/.cache/ppa/pp1 && bash ~/.cache/ppa/pp1"
+alias j="sudo julia --optimize=1"
 
 alias tmpy="mkdir -p ~/.cache/tmpy; touch ~/.cache/tmpy/tmpy.py; vim ~/.cache/tmpy/tmpy.py"
 alias pt="python3 ~/.cache/tmpy/tmpy.py"
@@ -194,6 +202,10 @@ function set_git_global_user() {
     email=$1
     git config --global user.email "$email"
 }
+function auto_git_commit() {
+    commit_msg="Update progress in latex document for the Master thesis"
+    git commit -m "$commit_msg" && git push origin HEAD
+}
 
 alias g="git"
 
@@ -208,6 +220,7 @@ alias gchb="git checkout -b"
 alias ga="git add"
 alias gap="git add -p"
 alias gc="git_commit" # custom function
+alias gcp="auto_git_commit"
 alias gce="git commit -a --allow-empty-message -m ''"
 alias gp="git push origin HEAD"
 alias gpu="git pull"
@@ -297,4 +310,3 @@ alias fix_perm='sudo chown -R "${USER:-$(id -un)}" .'
 
 alias next_bg="variety -n"
 alias fav_bg="variety -f"
-
